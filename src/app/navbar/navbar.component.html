@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink] = "['/']">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink] = "['/lookup']">Database Lookup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink] = "['/add-data']">Edit Data</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" [routerLink] = "['/estimate']">Premium Predictor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink] = "['/plan-details']">Insurance Info</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink] = "['/visualizations']">Statistics and Visualizations</a>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>

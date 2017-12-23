@@ -1,0 +1,77 @@
+<div class="jumbotron text-center" style="background-color: white;">
+  <div class="container">
+    <br />
+    <h1> Database Lookup </h1>
+
+    <mat-card style="width: 500px; padding-top: 20px; padding-left:15px; height: 50%; text-align: center">
+      <br />
+      <form class="example-form" (ngSubmit)="onSubmit()">
+        <mat-toolbar color="primary"> Enter User Information </mat-toolbar>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="User ID" [(ngModel)]="id" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="First Name" [(ngModel)]="firstname" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Last Name" [(ngModel)]="lastname" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Middle Initial" [(ngModel)]="middle" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <br />
+
+
+        <mat-radio-group [(ngModel)]="gender" [ngModelOptions]="{standalone: true}">
+          <mat-radio-button value="M">Male</mat-radio-button>
+          <mat-radio-button value="F">Female</mat-radio-button>
+        </mat-radio-group>
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Address" [(ngModel)]="address" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="City" [(ngModel)]="city" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Date of Birth (YYYY-DD-MM)" [(ngModel)]="DOB" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="State" [(ngModel)]="state" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <br />
+
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </form>
+    </mat-card>
+    <br />
+    <mat-card class="jumbotron text-center" style="margin-top: 20px; width: 500px; text-align: center" *ngIf="found || notFound">
+      <mat-toolbar color="primary"> Results </mat-toolbar>
+      <br/>
+      <div *ngIf="found">
+        <h4> Results Found: {{counter}} (Displaying 10 max)</h4>
+        <div> <b>ID: Last Name, First Name, Middle Initial </b></div>
+        <div *ngFor="let person of filtered; let i = index">
+          <div *ngIf="i <= 10">{{person.id}}: {{person.name}} </div>
+        </div>
+      </div>
+      <div *ngIf="notFound"> <b> No Matches Found </b></div>
+    </mat-card>
+  </div>
+</div>
+
+
+
+
+
+
+
+

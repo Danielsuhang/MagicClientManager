@@ -1,0 +1,46 @@
+<div class="jumbotron text-center" style="background-color: white;">
+  <div class="container">
+    <h1> Insurance Premium Estimator </h1>
+
+    <br />
+    <mat-card style="width: 500px; padding-top: 20px; padding-left:15px; margin-left: 15px; text-align: center">
+      <form class="example-form">
+        <mat-toolbar color="primary"> Adjust Settings </mat-toolbar>
+
+        <br />
+
+        <div> Select One: </div>
+        <mat-radio-group [(ngModel)]="tobacco" [ngModelOptions]="{standalone: true}">
+          <mat-radio-button value="1">Tobacco user</mat-radio-button>
+          <mat-radio-button value="0">Non-Tobacco user</mat-radio-button>
+        </mat-radio-group>
+        <br />
+        <br />
+
+
+        <div> Optional Insured Amount: ${{sliderVal}}</div>
+        <mat-slider thumbLabel [(ngModel)]="sliderVal" [ngModelOptions]="{standalone: true}" [max]="1000000" [min] = "500000"> </mat-slider>
+        
+        <br />
+        <div> Number of people covered: {{covered}} </div>
+        <mat-slider thumbLabel [(ngModel)]="covered" [ngModelOptions]="{standalone: true}" [max]="4" [min]="1"> </mat-slider>
+        
+        <br />
+
+        <button mat-raised-button color="primary" (click)="calculate()">Estimate</button>
+
+      </form>
+    </mat-card>
+    <br />
+    <br />
+    <br />
+
+    
+    <mat-card class="jumbotron text-center" style="margin-top: 20px; width: 500px; text-align: center" *ngIf="plat != null">
+      <div *ngIf="plat != null" style="font-size: 20px"> Your estimated platinum price is: {{plat}} </div>
+      <div *ngIf="gold != null" style="font-size: 20px"> Your estimated gold price is: {{gold}} </div>
+      <div *ngIf="silver != null" style="font-size: 20px"> Your estimated silver price is: {{silver}} </div>
+      <div *ngIf="bronze != null" style="font-size: 20px"> Your estimated bronze price is: {{bronze}} </div>
+    </mat-card>
+
+  </div>

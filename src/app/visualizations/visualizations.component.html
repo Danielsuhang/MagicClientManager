@@ -1,0 +1,161 @@
+<br />
+<br />
+<br />
+<br />
+<div class="row">
+  <div class="col-sm-8 blog-main">
+
+
+    <div class="blog-post">
+      <h2 class="blog-post-title">Visualizations and Statistics Process</h2>
+      <p class="blog-post-meta">COMP 426 Project</p>
+      <div> <img src="assets/img/YHack.png"> </div>
+      <br />
+
+      <hr>
+      <p style="font-size: 20px">
+        Our Web Application uses Angular4 as its front-end with Firebase as its Backend database and tool for deployment.
+      </p>
+
+
+
+      <h1> Data Analysis </h1>
+      <p style="font-size: 20px">For for Insurance Premium Predictor, we used R to run a multi-linear regression using variables that we determined
+        had statistically significant predictive power for Prices. As you can see from the linear model summary below, we
+        found that <b>tobacco use </b> , <b> number of people insured </b> and <b>Optional Insurance premiums </b> were by
+        far the best predictors for Premiums.
+
+      </p>
+      <div> <img src="assets/img/Regression.png"> </div>
+      <p style="font-size: 20px">The Pr(>|t|) indicates the p-value, or the probability that would observe such an extreme statistic such as the values
+        seen in our dataset. All our variable's p-values are <b> VERY </b> small, which indicates good predictive power.
+      </p>
+      <p style="font-size: 20px"> Also note the high Adjusted R-Squared value of 0.905 which indicates that our model adjusted for the noise from additional
+        applications, can account for <b> 90.5% </b> of the variance which exists in our dataset.
+      </p>
+
+      <img src="assets/img/Optimal Model.png" />
+      <p>
+        The model above shows a function in R which helps us determine what the best possible
+        multi-linear model is, by dropping one variable at a time and comparing their
+        Adjusted R-Squared values.
+
+        Looking at the topmost one, or the optimal model, we see that it includes the variables
+        mentioned above.
+      </p>
+    </div>
+    <div class="blog-post">
+
+
+      <h1>Data Findings</h1>
+
+
+      <div><img src="assets/img/heatmap.png" /></div>
+      <div>
+        <b>Fig 1.</b> Heat map of every variable compared to itself and others.
+      </div>
+      <h3>Step 1: Unbiased Correlational Analysis</h3>
+
+      <p>
+        Given the diversity of variables, a good first approach is to analyze it for obvious correlations. A heatmap (Fig 1) was
+        generated through the covariance of the pairings between every variable to each other. We omitted irrelevant or insignificant
+        labels and converted non-numerical values into integers for plotting convenience.
+      </p>
+
+      <p>
+        The result showed two variables that are positively correlated with the quotes:
+        <li> The number of people covered under one insurance plan tobacco usage</li>
+        <li> Tobacco usage, which is more strongly correlated than the prior</li>
+        <br /> All other variables lacked a statistically significant correlation.
+      </p>
+    </div>
+
+
+    <div class="blog-post">
+      <h3>Step 2. Regression Analysis.</h3>
+
+      <p>
+        We analyzed the linearly correlated values for a trendline, and identified a trendline for both variables, developing a multilinear
+        regression model. This is convenient for future predictions of premium quotes based off of the two correlated variables.
+      </p>
+
+      <img src="assets/img/regression 2.png" />
+      <img src="assets/img/tobacco_regression.png" />
+      <img src="assets/img/pplcovered_regression.png" />
+
+
+
+      <br/><br/>
+      <h3>Step 3. Data Visualization</h3>
+
+      Using an interactive visualization library in Python, we plotted a geo-map of the latitude and longitudes onto a Google map.
+
+      <br/>
+      <h3>Future Directions</h3>
+      <p>
+        We could implement a better purchased plan predictive algorithm. Uncorrelated data implies independence; consequently, we
+        can use more advanced machine learning techniques to analyze the independent variables involved in the dataset. Naive
+        Bayes, using the multinomial method for discrete values or Bernoulli's method for binary variables or multinomial,
+        is an option. Current methods allow for an estimated prediction of premium quotes for customer convenience. Data
+        analytics have shown limited dependence on variables. However, this could be improved to be more accurate given more
+        training data.
+      </p>
+
+      <p>
+        As supplementary information, here is a table summary of our multilinear regression attributes.
+      </p>
+      <img src="assets/img/regression_summary.png" />
+      <br />
+      <img src="assets/img/tobacco_boxplot.png" /> Alternatively, box plots can be mapped for each identified correlated
+      variable in order to clearly visualize the correlations between clusters of quotes across different plans. The following
+      figures are shown on the right.
+      <br/><br/>
+      <table style="padding-left:50px">
+        <tr>
+          <th><b><u>Legend</u></b></th>
+        </tr>
+        <tr>
+          <th>Blue</th>
+          <td>Platinum Plan</td>
+        </tr>
+        <tr>
+          <th>Green</th>
+          <td>Gold Plan</td>
+        </tr>
+        <tr>
+          <th>Red</th>
+          <td>Silver Plan</td>
+        </tr>
+        <tr>
+          <th>Yellow</th>
+          <td>Bronze Plan</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="blog-post">
+      <h2> Accounting for CoVariance </h2>
+      <p>
+        Why did we remove some variables? As we analyzed the data, we found that a lot of features were redundant. We found nearly
+        identical percentages
+      </p>
+    </div>
+  </div>
+
+
+    <img src="assets/img/Plan Chosen by Weight.png" />
+    <br />
+    <img src="assets/img/Plan Selected by Marital Status.png" />
+    <br />
+    <img src="assets/img/Plan Selected by State.png" />
+    <br />
+    <img src="assets/img/Plan Selected by Tobacco Use.png" />
+    <br />
+    <img src="assets/img/Similarities in Tobacco Use and Marital Status Distributions.png" />
+
+    <p>
+      From this, we concluded that information such as marital status, sex, and weight, and state had no use in predicting which
+      of the available insurance plans the user was going to select, or the premium prices. Additionally, an individual's
+      tobacco use did also not influence the type of plan that he or she chose, but it did influence the premium price.
+    </p>
+  </div>
